@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  nodejs:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    image: nodejs
+    container_name: nodejs
+    restart: unless-stopped
+    volumes:
+      - web-root:/home/node/app/www
+    networks:
+      - app-network
+
+  server:
+    image: nginx:1.20.2-alpine
+    container_name: server
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./docker/nginx-conf:/etc/nginx/conf.d
+    depends_on:
+      - nodejs
+    networks:
+      - app-network
+
+volumes:
+  web-root:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./www
+      o: bind
+
+networks:
+  app-network:
+    driver: bridge
