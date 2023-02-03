@@ -6,4 +6,4 @@ USER node
 RUN npm install
 COPY --chown=node:node ../. .
 EXPOSE 8080
-CMD [ "node", "www/app.js" ]
+CMD ["npm", "run", "dev"]

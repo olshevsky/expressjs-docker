@@ -4,7 +4,11 @@
   "description": "Alpine based docker setup with Nginx, Node.js and Express.js.",
   "author": "olshevsky",
   "license": "MIT",
-  "main": "app.js",
+  "main": "www/app.js",
+  "scripts": {
+    "dev": "npx nodemon www/app.js",
+    "prod": "node www/app.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/olshevsky/expressjs-docker"
@@ -15,5 +19,8 @@
   ],
   "dependencies": {
     "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.20"
   }
 }
