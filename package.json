@@ -1,13 +1,13 @@
 {
   "name": "demo-app",
   "version": "1.0.0",
-  "description": "Alpine based docker setup for Node.js and Nginx.",
+  "description": "Alpine based docker setup with Nginx, Node.js and Express.js.",
   "author": "olshevsky",
   "license": "MIT",
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/olshevsky/node-docker"
+    "url": "https://github.com/olshevsky/expressjs-docker"
   },
   "keywords": [
     "nodejs",
